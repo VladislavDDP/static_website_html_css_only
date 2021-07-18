@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="shortcut icon" href="assets/images/title.png" type="image/png">
+
+<title>Lemok - Statistic</title>  
+</head>
+    
+    
+<body>
+<script src="https://kit.fontawesome.com/51474e50f5.js" crossorigin="anonymous"></script>
+<section id="begin_of_page" class="container">
+    <div class="inner">
+        <div class="container_header">
+            <div class="logo"><a class="logo_link" href="file:///E:/sites_proj/Simple_first/main.html">LemoK</a></div>
+            <div class="header_links">
+                <a class="header_link" href="file:///E:/sites_proj/Simple_first/main.html">Main</a>
+                <a class="header_link active" href="file:///E:/sites_proj/Simple_first/statistics.html">Statistic</a>
+                <a class="header_link" href="file:///E:/sites_proj/Simple_first/contacts.html">Contacts</a>
+                
+                <form>
+                    <input class="place_for_search" type="text" id="text-to-find" value="" placeholder="Search" autofocus> 
+                    <input class="button_for_turn_back" type="button" onclick="javascript: FindOnPage('text-to-find',false); return false;" value="X" title="Отменить поиск">
+                    <input class="button_for_search" type="submit" onclick="javascript: FindOnPage('text-to-find',true); return false;" value="OK" title="Начать поиск">
+                </form>
+            </div>
+        </div>  
+    </div>
+</section>
+    
+<a class="feedback" href="#begin_of_page"><i class="fas fa-chevron-circle-up"></i></a>
+    
+    
+<section class="container">
+    <div class="content-table">
+        <h2>About investitions</h2>
+
+        <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Savings</th>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>Griffin</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>Lois</td>
+            <td>Griffin</td>
+            <td>$150</td>
+        </tr>
+        <tr>
+            <td>Joe</td>
+            <td>Swanson</td>
+            <td>$300</td>
+        </tr>
+        <tr>
+            <td>Cleveland</td>
+            <td>Brown</td>
+            <td>$250</td>
+        </tr>
+        </table>
+    </div>
+</section>
+    
+    
+<section class="container">
+    <div class="content-table">
+        <h2>Month income</h2>
+
+        <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Savings</th>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>Griffin</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>Lois</td>
+            <td>Griffin</td>
+            <td>$150</td>
+        </tr>
+        <tr>
+            <td>Joe</td>
+            <td>Swanson</td>
+            <td>$300</td>
+        </tr>
+        <tr>
+            <td>Cleveland</td>
+            <td>Brown</td>
+            <td>$250</td>
+        </tr>
+        </table>
+    </div>
+</section>
+    
+    
+<section class="container">
+    <div class="container-progress">
+        <h2 class="progress_header">Involvement</h2>
+        <div class="meter">
+            <span style="width: 53%">53%</span>
+        </div>
+    </div>
+</section>
+    
+<section class="container">
+    <div class="container-progress">
+        <h2 class="progress_header">Deposits</h2>
+        <div class="meter">
+            <span style="width: 73%">73%</span>
+        </div>
+    </div>
+</section>
+ 
+
+<footer>
+    <section class="container container-footer">
+    © Copyright - Vladyslav Kucheruk FE Developer
+    </section>
+</footer>
+    
+<script>
+    var input,search,pr,result,result_arr, locale_HTML, result_store;
+
+function func() {
+ 	locale_HTML = document.body.innerHTML;   // сохраняем в переменную весь body (Первоначальный)
+}
+setTimeout(func, 1000);  //ждем подгрузки Jsona и выполняем
+
+function FindOnPage(name, status) {
+
+	input = document.getElementById(name).value; //получаем значение из поля в html
+	
+	if(input.length<3&&status==true)
+	{
+		alert('Для поиска вы должны ввести три или более символов');
+		function FindOnPageBack() { document.body.innerHTML = locale_HTML; }
+	}
+	
+	if(input.length>=3)
+	{
+		function FindOnPageGo() {
+
+			search = '/'+input+'/g';  //делаем из строки регуярное выражение
+			pr = document.body.innerHTML;   // сохраняем в переменную весь body
+			result = pr.match(/>(.*?)</g);  //отсекаем все теги и получаем только текст
+			result_arr = [];   //в этом массиве будем хранить результат работы (подсветку)
+
+			var warning = true;
+			for(var i=0;i<result.length;i++) {
+				if(result[i].match(eval(search))!=null) {
+					warning = false;
+				}
+			}
+			if(warning == true) {
+				alert('Не найдено ни одного совпадения');
+			}
+
+			for(var i=0; i<result.length;i++) {
+				result_arr[i] = result[i].replace(eval(search), '<span style="background-color:darkmagenta;">'+input+'</span>'); //находим нужные элементы, задаем стиль и сохраняем в новый массив
+			}
+			for(var i=0; i<result.length;i++) {
+				pr=pr.replace(result[i],result_arr[i])  //заменяем в переменной с html текст на новый из новогом ассива
+			}
+			document.body.innerHTML = pr;  //заменяем html код
+		}
+	}
+	function FindOnPageBack() { document.body.innerHTML = locale_HTML; }
+	if(status) { FindOnPageBack(); FindOnPageGo(); } //чистим прошлое и Выделяем найденное
+	if(!status) { FindOnPageBack(); } //Снимаем выделение
+}
+</script>
+    
+</body>
+    
+</html>

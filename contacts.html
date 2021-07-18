@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="assets/images/title.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<title>Lemok - Contacts</title>  
+</head>
+    
+    
+<body>
+<script src="https://kit.fontawesome.com/51474e50f5.js" crossorigin="anonymous"></script>
+<section id="begin_of_page" class="container">
+    <div class="inner">
+        <div class="container_header">
+            <div class="logo"><a class="logo_link" href="file:///E:/sites_proj/Simple_first/main.html">LemoK</a></div>
+            <div class="header_links">
+                <a class="header_link" href="file:///E:/sites_proj/Simple_first/main.html">Main</a>
+                <a class="header_link" href="file:///E:/sites_proj/Simple_first/statistics.html">Statistic</a>
+                <a class="header_link active" href="file:///E:/sites_proj/Simple_first/contacts.html">Contacts</a>
+                
+                <form>
+                    <input class="place_for_search" type="text" id="text-to-find" value="" placeholder="Search" autofocus> 
+                    <input class="button_for_turn_back" type="button" onclick="javascript: FindOnPage('text-to-find',false); return false;" value="X" title="Отменить поиск">
+                    <input class="button_for_search" type="submit" onclick="javascript: FindOnPage('text-to-find',true); return false;" value="OK" title="Начать поиск">
+                </form>
+            </div>
+        </div>  
+    </div>
+</section>
+    
+<a class="feedback" href="#begin_of_page"><i class="fas fa-chevron-circle-up"></i></a>
+    
+<section class="container"> 
+    <div class="gallery_header">
+        <h2>Contact us</h2>
+    </div>
+    
+    <div class="colomns colomns-contact">
+        
+        <div class="contact_details">
+            <h2>Info:</h2>
+            <div class="cont_text">
+                <p><b>Email:</b> work_x_work@private.com</p>
+                <p><b>Phone:</b> +38(095)xx-xx-xxx</p>
+            </div>
+            <details class="contact_info">
+                <summary>For employees</summary>
+                <div class="social_text">
+                    <p><b>Skills:</b> Degree, 3 years Python</p>
+                    <p><b>Requirements:</b> 12 h/d, FE, BE</p>
+                </div>
+            </details>
+            
+            <details class="contact_info">
+                <summary>Reviews</summary>
+                <div class="social_text">
+                    <p><b>Quantity:</b> More than 30 000</p>
+                    <p><b>Staff:</b> 5 groups</p>
+                </div>
+            </details>
+        </div>
+        
+        <div class="networks">
+            <h2>Follow us:</h2>
+            
+            <hr class="cont-hr">
+            <a href="https://www.instagram.com/" target="_blank"><img src="assets/images/social/instagram.png"></a>
+            <a href="https://web.telegram.org/" target="_blank"><img src="assets/images/social/telegram.png"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="assets/images/social/facebook.png"></a>
+            <a href="https://soundcloud.com/discover" target="_blank"><img src="assets/images/social/soundcloud.png"></a>
+            
+            <br>
+            
+            <a href="https://www.youtube.com/" target="_blank"><img src="assets/images/social/youtube.png"></a>
+            <a href="https://twitter.com/?lang=ru" target="_blank"><img src="assets/images/social/twitter.png"></a>
+            <a href="https://www.tumblr.com/" target="_blank"><img src="assets/images/social/tumblr.png"></a>
+            <a href="https://www.gmail.com" target="_blank"><img src="assets/images/social/gmail.png"></a>
+
+            <hr class="cont-hr">
+        </div>
+        
+    </div>
+</section>
+    
+<section class="container"> 
+    <a class="map_link" href="https://goo.gl/maps/mYnBN9EFz5izXqud9" target="_blank">
+        <div class="cont_map">
+            <div class="map">
+                <h2 class="map_title">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <br>
+                    Open map
+                </h2>
+            </div>
+        </div>
+    </a>
+</section>
+    
+    
+<section class="container">
+    <div class="gallery_header">
+        <h2>Staff</h2>
+    </div>
+    <div class="photos">
+        <div class="photoset">
+            <div class="photoset_img">
+                <img src="assets/images/photos/3.jpg" alt="">
+            </div>
+            <div class="photoset_title">Vladyslav Kucheruk</div>
+            <div class="photoset_text">Chief executive officer</div>
+            
+        </div>
+
+        <div class="photoset">
+            <div class="photoset_img">
+                <img src="assets/images/photos/2.jpg" alt="">
+            </div>
+            <div class="photoset_title">Thai Chi Nu</div>
+            <div class="photoset_text">Finance engineer</div>
+            
+        </div>
+        
+        <div class="photoset">
+            <div class="photoset_img">
+                <img src="assets/images/photos/1.jpg" alt="">
+            </div>
+            <div class="photoset_title">Pavel Dobrinskiy</div>
+            <div class="photoset_text">Creative manager</div>
+            
+        </div>
+        
+    </div>
+</section>
+    
+<script src="https://kit.fontawesome.com/51474e50f5.js" crossorigin="anonymous"></script>
+
+<footer>
+    <section class="container container-footer">
+    © Copyright - Vladyslav Kucheruk FE Developer
+    </section>
+</footer>
+    
+<script>
+    var input,search,pr,result,result_arr, locale_HTML, result_store;
+
+function func() {
+ 	locale_HTML = document.body.innerHTML;   // сохраняем в переменную весь body (Первоначальный)
+}
+setTimeout(func, 1000);  //ждем подгрузки Jsona и выполняем
+
+function FindOnPage(name, status) {
+
+	input = document.getElementById(name).value; //получаем значение из поля в html
+	
+	if(input.length<3&&status==true)
+	{
+		alert('Для поиска вы должны ввести три или более символов');
+		function FindOnPageBack() { document.body.innerHTML = locale_HTML; }
+	}
+	
+	if(input.length>=3)
+	{
+		function FindOnPageGo() {
+
+			search = '/'+input+'/g';  //делаем из строки регуярное выражение
+			pr = document.body.innerHTML;   // сохраняем в переменную весь body
+			result = pr.match(/>(.*?)</g);  //отсекаем все теги и получаем только текст
+			result_arr = [];   //в этом массиве будем хранить результат работы (подсветку)
+
+			var warning = true;
+			for(var i=0;i<result.length;i++) {
+				if(result[i].match(eval(search))!=null) {
+					warning = false;
+				}
+			}
+			if(warning == true) {
+				alert('Не найдено ни одного совпадения');
+			}
+
+			for(var i=0; i<result.length;i++) {
+				result_arr[i] = result[i].replace(eval(search), '<span style="background-color:darkmagenta;">'+input+'</span>'); //находим нужные элементы, задаем стиль и сохраняем в новый массив
+			}
+			for(var i=0; i<result.length;i++) {
+				pr=pr.replace(result[i],result_arr[i])  //заменяем в переменной с html текст на новый из новогом ассива
+			}
+			document.body.innerHTML = pr;  //заменяем html код
+		}
+	}
+	function FindOnPageBack() { document.body.innerHTML = locale_HTML; }
+	if(status) { FindOnPageBack(); FindOnPageGo(); } //чистим прошлое и Выделяем найденное
+	if(!status) { FindOnPageBack(); } //Снимаем выделение
+}
+</script>
+    
+</body>
+    
+</html>
