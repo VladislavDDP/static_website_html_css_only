@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #dfc7f4;
     font-family: 'Open Sans', sans-serif;
